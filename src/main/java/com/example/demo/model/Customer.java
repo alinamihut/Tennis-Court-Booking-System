@@ -1,8 +1,16 @@
 package com.example.demo.model;
 
 
+import lombok.*;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+
+@Builder
 @Entity
 @Table(name="customer")
 public class Customer {
@@ -31,6 +39,8 @@ public class Customer {
         this.username = username;
         this.password = password;
     }
+
+
 
 
 }
