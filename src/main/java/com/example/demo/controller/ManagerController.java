@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -24,10 +25,19 @@ public class ManagerController {
         this.managerService = managerService;
     }
 
-    @GetMapping
-    public List<TennisCourtManager> findAll() {
+    @GetMapping(path = "/get")
+    public List<String> findAll() {
         logger.info("GET method for finding all existing managers");
-        return managerService.getListOfTennisCourtManagers();
+
+        List<TennisCourtManager> listOfManagers =  managerService.getListOfTennisCourtManagers();
+
+        List<String> managers = new ArrayList<>();
+
+        for (TennisCourtManager m:listOfManagers){
+            managers.add(m.getUsername());
+        }
+
+        return managers;
     }
 
     @PostMapping(path = "/login")

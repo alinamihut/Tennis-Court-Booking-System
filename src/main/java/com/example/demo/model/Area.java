@@ -16,4 +16,27 @@ public class Area {
     @OneToMany(mappedBy = "area", fetch = FetchType.EAGER)
     private List<TennisCourt> tennisCourts;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<TennisCourt> getTennisCourts() {
+        return tennisCourts;
+    }
+
+    public void setTennisCourts(List<TennisCourt> tennisCourts) {
+        this.tennisCourts = tennisCourts;
+    }
 }
