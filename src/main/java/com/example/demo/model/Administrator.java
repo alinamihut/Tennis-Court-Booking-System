@@ -16,6 +16,8 @@ public class Administrator {
     @Column ( nullable = false)
     private String password;
 
+
+
     public String getUsername() {
         return username;
     }
@@ -29,6 +31,22 @@ public class Administrator {
     }
 
     public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Integer getIdAdmin() {
+        return idAdmin;
+    }
+
+    public void setIdAdmin(Integer idAdmin) {
+        this.idAdmin = idAdmin;
+    }
+
+    public Administrator() {
+    }
+
+    public Administrator(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 }

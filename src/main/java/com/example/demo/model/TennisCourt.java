@@ -35,6 +35,14 @@ public class TennisCourt {
     @JoinColumn(name = "id", nullable = false)
     private Area area;
 
+    public Integer getIdTennisCourt() {
+        return idTennisCourt;
+    }
+
+    public void setIdTennisCourt(Integer idTennisCourt) {
+        this.idTennisCourt = idTennisCourt;
+    }
+
     public String getName() {
         return name;
     }

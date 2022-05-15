@@ -25,6 +25,14 @@ public class TennisCourtManager {
     @OneToOne(mappedBy = "manager", fetch = FetchType.EAGER)
     private TennisCourt tennisCourt;
 
+    public Integer getIdManager() {
+        return idManager;
+    }
+
+    public void setIdManager(Integer idManager) {
+        this.idManager = idManager;
+    }
+
     public String getFirstName() {
         return firstName;
     }
