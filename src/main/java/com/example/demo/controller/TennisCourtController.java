@@ -29,6 +29,7 @@ public class TennisCourtController {
 
     @GetMapping(path="/getareas")
     public List<String> findAllAreas() {
+        logger.info("GET method for retrieving all areas");
         List<Area> allAreas = tennisCourtService.getListOfAreas();
         List<String> zones = new ArrayList();
         for (Area a:allAreas){
@@ -40,6 +41,7 @@ public class TennisCourtController {
 
     @GetMapping(path="/get")
     public List<String> findAllTennisCourtNames() {
+        logger.info("GET method for retrieving all tennis court names");
         List<TennisCourt> allCourts = tennisCourtService.getListOfTennisCourts();
         List<String> courts = new ArrayList();
         for (TennisCourt t:allCourts){
@@ -51,6 +53,7 @@ public class TennisCourtController {
 
     @GetMapping(path="/getall")
     public List<TennisCourtDTO> findAllTennisCourts() {
+        logger.info("GET method for retrieving all tennis courts");
         List<TennisCourt> allCourts = tennisCourtService.getListOfTennisCourts();
         List<TennisCourtDTO> courtsDTOS = new ArrayList();
         for (TennisCourt t:allCourts){

@@ -45,7 +45,7 @@ public class ManagerController {
 
         Boolean loginManagerMade = managerService.loginManager(dto.getUsername(), dto.getPassword());
 
-        logger.info("POST method for logging in a customer");
+        logger.info("POST method for logging in a tennis court manager");
         if(loginManagerMade) {
             return ResponseEntity.status(HttpStatus.OK).build();
         } else {

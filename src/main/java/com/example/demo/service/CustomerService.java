@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 
+/**
+ * Customer service class.
+ */
 @Service
 public class CustomerService {
     private final CustomerRepository customerRepository;

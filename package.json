@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "react-select": "^5.3.2"
+  },
+  "devDependencies": {
+    "react-datetime-picker": "^3.5.0",
+    "react-time-picker": "^4.5.0"
+  }
+}

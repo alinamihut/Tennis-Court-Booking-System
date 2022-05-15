@@ -38,6 +38,9 @@ public class ReservationDTO {
         this.startTime = startTime;
     }
 
+    public ReservationDTO() {
+    }
+
     public ReservationDTO(String tennisCourt, String customer, String date, Integer startTime) {
         this.tennisCourt = tennisCourt;
         this.customer = customer;

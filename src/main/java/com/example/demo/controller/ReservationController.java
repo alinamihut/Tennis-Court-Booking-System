@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/reservation")
@@ -27,6 +28,7 @@ public class ReservationController {
     private ReservationService reservationService;
     private TennisCourtService tennisCourtService;
 
+    Logger logger = Logger.getLogger(ReservationController.class.getName());
     @Autowired
     public ReservationController(ReservationService reservationService, TennisCourtService tennisCourtService) {
         this.reservationService = reservationService;
@@ -36,6 +38,7 @@ public class ReservationController {
     @PostMapping(path = "/add")
     public ResponseEntity create(@RequestBody ReservationDTO dto) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        logger.info("POST method for adding a reservation in the system");
         try
         {
             Date date = formatter.parse(dto.getDate());
@@ -57,6 +60,7 @@ public class ReservationController {
         }
     @GetMapping(path="/getall/{managername}")
     public List<ReservationWithTimeSlotDTO> findAllReservationsforTennisCourt(@PathVariable String managername) {
+        logger.info("GET method for finding all reservations in the system based on manager's name");
         Optional<TennisCourt> t = tennisCourtService.getTennisCourtForManager(managername);
         List<Reservation> reservationsList = reservationService.findAllReservationsForTennisCourt(t.get().getName());
         List<ReservationWithTimeSlotDTO> dtos = new ArrayList();
@@ -72,6 +76,7 @@ public class ReservationController {
 
     @GetMapping(path = "/exportreservations/{name}")
     public ResponseEntity exportReservations(@PathVariable String name) {
+        logger.info("GET method for exporting the reservations as pdf");
         List<Reservation> reservationsList = reservationService.findAllReservationsForTennisCourt(name);
 
         reservationService.exportReservationsAsPDF(reservationsList, name);

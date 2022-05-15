@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 
+/**
+ * Manager service class.
+ */
 @Service
 public class ManagerService {
     private final ManagerRepository managerRepository;
@@ -61,7 +64,7 @@ public class ManagerService {
      * Find tennis court manager by username.
      *
      * @param username the username
-     * @return mnager object or null if the tennis court managers with doesnt't exist in the DB
+     * @return manager object or null if the tennis court managers with doesnt't exist in the DB
      */
     public Optional<TennisCourtManager> findByUsername(String username) {
         logger.info("Found manager with username " + username);

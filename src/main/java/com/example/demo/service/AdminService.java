@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 
+/**
+ * Admin service class.
+ */
 @Service
 public class AdminService {
     private final AdminRepository adminRepository;
