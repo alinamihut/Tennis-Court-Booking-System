@@ -39,7 +39,7 @@ export default class Login extends Component {
             console.log(event.nativeEvent.submitter.innerText);
             fetch('http://localhost:8080/sd_project1/customer/login', requestOptions)
                 .then(
-                    response => {if (response.status === 404) {
+                    response => {if (response.status === 400) {
                         alert ('Wrong credentials!')
                     }
                     else if (response.status === 200 ){
@@ -64,11 +64,11 @@ export default class Login extends Component {
 
         }
 
-        if ( event.nativeEvent.submitter.innerText === "Login as court manager") {
+        if ( event.nativeEvent.submitter.innerText === "Login as tennis court manager") {
             console.log(event.nativeEvent.submitter.innerText);
             fetch('http://localhost:8080/sd_project1/manager/login', requestOptions)
                 .then(
-                    response => {if (response.status === 404) {
+                    response => {if (response.status === 400) {
                         alert ('Wrong credentials!')
                     }
                     else if (response.status === 200 ){

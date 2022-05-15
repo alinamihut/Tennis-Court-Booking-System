@@ -57,6 +57,9 @@ public class TennisCourtService {
 
     }
 
+    public Optional<TennisCourt> getTennisCourtForManager (String managerUsername){
+        return tennisCourtRepository.findTennisCourtByManager_Username(managerUsername);
+    }
     @Transactional
     public void deleteTennisCourt(String name)
     {

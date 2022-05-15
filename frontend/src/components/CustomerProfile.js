@@ -3,9 +3,9 @@ import './Home.css';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import DatePicker from "react-datepicker";
-import DateTimePicker from 'react-datetime-picker';
+
 import "react-datepicker/dist/react-datepicker.css";
-import TimePicker from 'react-time-picker';
+
 export default class CustomerProfile extends Component {
     constructor(props) {
         super(props);
@@ -69,9 +69,6 @@ export default class CustomerProfile extends Component {
                    }
                });
 
-
-       // console.log(this.state.reservationDate);
-        //console.log(this.state.reservationTime);
 
     }
 

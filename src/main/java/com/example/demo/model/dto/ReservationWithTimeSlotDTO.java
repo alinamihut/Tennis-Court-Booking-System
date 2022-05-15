@@ -1,10 +1,11 @@
 package com.example.demo.model.dto;
 
-public class ReservationDTO {
+public class ReservationWithTimeSlotDTO {
     private String tennisCourt;
     private String customer;
     private String date;
     private Integer startTime;
+    private Integer endTime;
 
     public String getTennisCourt() {
         return tennisCourt;
@@ -38,10 +39,19 @@ public class ReservationDTO {
         this.startTime = startTime;
     }
 
-    public ReservationDTO(String tennisCourt, String customer, String date, Integer startTime) {
+    public Integer getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Integer endTime) {
+        this.endTime = endTime;
+    }
+
+    public ReservationWithTimeSlotDTO(String tennisCourt, String customer, String date, Integer startTime, Integer endTime) {
         this.tennisCourt = tennisCourt;
         this.customer = customer;
         this.date = date;
         this.startTime = startTime;
+        this.endTime = endTime;
     }
 }

@@ -5,12 +5,14 @@ import com.example.demo.model.Customer;
 import com.example.demo.model.TennisCourt;
 import com.example.demo.model.dto.TennisCourtDTO;
 import com.example.demo.service.TennisCourtService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Logger;
 
 @RestController
@@ -20,6 +22,7 @@ public class TennisCourtController {
     private TennisCourtService tennisCourtService;
 
     Logger logger = Logger.getLogger(TennisCourtController.class.getName());
+    @Autowired
     public TennisCourtController(TennisCourtService tennisCourtService) {
         this.tennisCourtService = tennisCourtService;
     }
@@ -81,4 +84,19 @@ public class TennisCourtController {
         return ResponseEntity.status(HttpStatus.OK).body("Tennis Court deleted successfully!");
     }
 
+
+    @GetMapping(path = "/{managername}")
+    public TennisCourtDTO getTennisCourtByManager(@PathVariable String managername) {
+        logger.info("GET method for finding tennis court for manager "  + managername);
+        Optional<TennisCourt> tennisCourt = tennisCourtService.getTennisCourtForManager(managername);
+        System.out.println(tennisCourt.get().getName());
+        if (tennisCourt.isPresent()) {
+            TennisCourtDTO dto = new TennisCourtDTO(tennisCourt.get().getName(), tennisCourt.get().getLocation(),
+                    tennisCourt.get().getPricePerHour(), tennisCourt.get().getDescription(), tennisCourt.get().getManager().getUsername(),
+                    tennisCourt.get().getArea().getName());
+            return dto;
+        }
+
+        return null;
+    }
 }
