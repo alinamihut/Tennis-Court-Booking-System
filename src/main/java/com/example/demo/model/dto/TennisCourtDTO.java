@@ -55,4 +55,16 @@ public class TennisCourtDTO {
     public void setArea(String area) {
         this.area = area;
     }
+
+    public TennisCourtDTO() {
+    }
+
+    public TennisCourtDTO(String name, String location, Integer rentingPrice, String description, String manager, String area) {
+        this.name = name;
+        this.location = location;
+        this.rentingPrice = rentingPrice;
+        this.description = description;
+        this.manager = manager;
+        this.area = area;
+    }
 }

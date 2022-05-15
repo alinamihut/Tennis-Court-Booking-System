@@ -29,15 +29,51 @@ public class Reservation {
     @JoinColumn(name="idTennisCourt")
     private TennisCourt tennisCourt;
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
+    public Date getDate() {
+        return date;
+    }
 
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
+    public Integer getStartHour() {
+        return startHour;
+    }
 
+    public void setStartHour(Integer startHour) {
+        this.startHour = startHour;
+    }
 
+    public Integer getEndHour() {
+        return endHour;
+    }
 
+    public void setEndHour(Integer endHour) {
+        this.endHour = endHour;
+    }
 
+    public Customer getCustomer() {
+        return customer;
+    }
 
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
+    public TennisCourt getTennisCourt() {
+        return tennisCourt;
+    }
 
+    public void setTennisCourt(TennisCourt tennisCourt) {
+        this.tennisCourt = tennisCourt;
+    }
 }

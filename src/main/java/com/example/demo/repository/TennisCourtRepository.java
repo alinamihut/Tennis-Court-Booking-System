@@ -13,4 +13,6 @@ public interface TennisCourtRepository extends JpaRepository<TennisCourt, Intege
     Optional<TennisCourt> findTennisCourtByManager_Username(String username);
 
     void deleteByName(String name);
+
+    Optional<TennisCourt> findTennisCourtByName(String name);
 }

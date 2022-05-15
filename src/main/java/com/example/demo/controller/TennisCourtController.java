@@ -36,7 +36,7 @@ public class TennisCourtController {
     }
 
     @GetMapping(path="/get")
-    public List<String> findAllTennisCourts() {
+    public List<String> findAllTennisCourtNames() {
         List<TennisCourt> allCourts = tennisCourtService.getListOfTennisCourts();
         List<String> courts = new ArrayList();
         for (TennisCourt t:allCourts){
@@ -44,6 +44,20 @@ public class TennisCourtController {
 
         }
         return courts;
+    }
+
+    @GetMapping(path="/getall")
+    public List<TennisCourtDTO> findAllTennisCourts() {
+        List<TennisCourt> allCourts = tennisCourtService.getListOfTennisCourts();
+        List<TennisCourtDTO> courtsDTOS = new ArrayList();
+        for (TennisCourt t:allCourts){
+            TennisCourtDTO dto = new TennisCourtDTO(t.getName(), t.getLocation(),t.getPricePerHour(),
+                    t.getDescription(), t.getManager().getUsername(), t.getArea().getName());
+
+            courtsDTOS.add(dto);
+
+        }
+        return courtsDTOS;
     }
 
     @PostMapping(path = "/add")
