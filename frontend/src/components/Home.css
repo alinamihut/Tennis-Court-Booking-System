@@ -71,3 +71,7 @@ thead > tr > th {
 .datePicker {
     width: 100%;
 }
+
+.label{
+    font-size: 17px;
+}

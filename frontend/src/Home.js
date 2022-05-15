@@ -19,7 +19,7 @@ class Home extends Component{
     return (
 
         <div  className="App" class="centered">
-          <h1>     Welcome to Tennis Kourt! <br /> </h1>
+          <h1>     Tennis Court Booker <br /> </h1>
 
           <Button className= "button"  variant="light" size="lg"  type="submit" href={"/login"} > Login</Button>
           <Button   className= "button"  variant="light" size="lg" type="submit" href={"/register"}>Register </Button>

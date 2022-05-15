@@ -13,13 +13,17 @@ export default class CustomerProfile extends Component {
             tennisCourtsList:[],
             selectedTennisCourt:'',
             reservationDate:'',
-            reservationHour:''
+            reservationHour:'',
+            areasList:[],
+            selectedZone:''
 
         };
 
         this.handleDropdownChangeTennisCourt= this.handleDropdownChangeTennisCourt.bind(this);
         this.handleSubmitBook = this.handleSubmitBook.bind(this);
         this.handleChangeDate = this.handleChangeDate.bind(this);
+        this.handleDropdownChangeZone = this.handleDropdownChangeZone.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     async componentDidMount() {
         fetch('http://localhost:8080/sd_project1/tenniscourt/getall')
@@ -27,6 +31,17 @@ export default class CustomerProfile extends Component {
                 const tennisCourtsFromApi = await response.json();
                 this.setState({
                     tennisCourtsList: tennisCourtsFromApi});})
+            .catch(error => {
+                console.log(error);
+            });
+        fetch(
+            'http://localhost:8080/sd_project1/tenniscourt/getareas').then(async response => {
+            const areas = await response.json();
+
+            this.setState({
+                areasList: areas
+            });
+        })
             .catch(error => {
                 console.log(error);
             });
@@ -81,6 +96,16 @@ export default class CustomerProfile extends Component {
     async handleDropdownChangeTennisCourt(e) {
         await this.setState({selectedTennisCourt: e.target.value});
     }
+
+    async handleDropdownChangeZone(e2) {
+        await this.setState({selectedZone: e2.target.value});
+    }
+
+   handleSubmit(){
+        // this.setState({ selectedRestaurant: e.target.value });
+        localStorage.setItem('zone', this.state.selectedZone);
+        console.log(this.state.selectedZone)
+    }
     render() {
 
         return (
@@ -124,13 +149,13 @@ export default class CustomerProfile extends Component {
                     ))}
 
                 </select>
-                <br/>
-                    <label>Date: </label>
+                    <br/>
+                    <label className="label" >Date </label>
                     <DatePicker wrapperClassName="datePicker" selected={this.state.reservationDate} onChange={ (e) =>this.handleChangeDate(e) }
                                 name="date" dateFormat="yyyy-MM-dd"
                                 />
                     <br/>
-                    <label>Start hour: <br/>
+                    <label className="label" >Start hour <br/> Note: your booking is made for one hour <br/>
                         <input className="textfield"
                                type="startHour"
                                name="startHour"
@@ -139,6 +164,18 @@ export default class CustomerProfile extends Component {
                     <br/>
                     <Button className="textfield" value="customer" variant="secondary" size="lg" type="submit">Book</Button>
                  </Form>
+                <Form className="form-line" onSubmit={this.handleSubmitBook}>
+                    <h2>Search for a tennis court in an area: <br /> </h2>
+                    <select className="textfield"  onChange={ (e) =>this.handleDropdownChangeZone(e)}>
+                        {this.state.areasList.map(optn => (
+                            <option>{optn}</option>
+                        ))}
+
+                    </select>
+                    <br/>
+
+                    <Button className="textfield" value="customer" variant="secondary" size="lg" onClick={(e) => this.handleSubmit(e) } href={"/viewtenniscourtsarea"}type="submit">Search</Button>
+                </Form>
             </div>);
     }
 }

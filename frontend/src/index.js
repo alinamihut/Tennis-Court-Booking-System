@@ -10,6 +10,7 @@ import Register from "./components/Register";
 import CustomerProfile from "./components/CustomerProfile";
 import AdminProfile from "./components/AdminProfile";
 import ManagerProfile from "./components/ManagerProfile";
+import ViewTennisCourtCustomer from "./components/ViewTennisCourtCustomer";
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
                 <Route exact path="/customerprofile" element = {<CustomerProfile/>} />
                 <Route exact path="/adminprofile" element = {<AdminProfile/>} />
                 <Route exact path="/managerprofile" element = {<ManagerProfile/>} />
+                <Route exact path="/viewtenniscourtsarea" element = {<ViewTennisCourtCustomer/>} />
             </Routes>
         </BrowserRouter>
     );

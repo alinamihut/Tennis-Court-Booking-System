@@ -51,6 +51,21 @@ public class TennisCourtController {
         return courts;
     }
 
+    @GetMapping(path="/getall/{area}")
+    public List<TennisCourtDTO> findAllTennisCourtsInArea(@PathVariable("area") String area) {
+        logger.info("GET method for retrieving all tennis courts in an area");
+        List<TennisCourt> allCourts = tennisCourtService.getListOfTennisCourts();
+        List<TennisCourtDTO> courtsDTOS = new ArrayList();
+        for (TennisCourt t:allCourts){
+            if (t.getArea().getName().equals(area)) {
+                TennisCourtDTO dto = new TennisCourtDTO(t.getName(), t.getLocation(), t.getPricePerHour(),
+                        t.getDescription(), t.getManager().getUsername(), t.getArea().getName());
+
+                courtsDTOS.add(dto);
+            }
+        }
+        return courtsDTOS;
+    }
     @GetMapping(path="/getall")
     public List<TennisCourtDTO> findAllTennisCourts() {
         logger.info("GET method for retrieving all tennis courts");
