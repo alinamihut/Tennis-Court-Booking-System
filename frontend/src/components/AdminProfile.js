@@ -3,8 +3,6 @@ import './Home.css';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-import Select from 'react-select';
-import CheckBox from "react-native-web";
 export default class AdminProfile extends Component {
     constructor(props) {
         super(props);
@@ -69,21 +67,6 @@ export default class AdminProfile extends Component {
             .catch(error => {
                 console.log(error);
             });
-    /*
-        fetch(
-            'http://localhost:8080/sd_assignment2/restaurant/categories',)
-            .then(async response => {
-                const categoriesFromApi = await response.json();
-
-                this.setState({
-                    foodCategories: categoriesFromApi
-                });
-            })
-            .catch(error => {
-                console.log(error);
-            });
-
-         */
 
     }
 

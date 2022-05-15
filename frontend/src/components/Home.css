@@ -1,6 +1,7 @@
 
 * {
     text-align: center;
+
 }
 
 .logo {
@@ -63,7 +64,11 @@ td, th {
     padding: 0.5rem;
 }
 thead > tr > th {
-    background-color: brown;
+    background-color: #977042;
     font-size: 18px;
     border-bottom: 2px solid #999;
+}
+
+.datePicker {
+    width: 100%;
 }
